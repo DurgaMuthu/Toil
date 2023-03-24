@@ -1,0 +1,1 @@
+az aks get-credentials --resource-group SREExecutive --name %1 & git clone https://github.com/GoogleCloudPlatform/microservices-demo.git & timeout  /T 10 /NOBREAK > nul & kubectl apply -f ./microservices-demo/release/kubernetes-manifests.yaml & timeout  /T 30 /NOBREAK > nul & kubectl get pods & timeout  /T 5 /NOBREAK > nul & kubectl get service frontend-external
